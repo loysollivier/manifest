@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+        <remote name="github"   fetch="https://github.com" />
+
+        <default remote="github" revision="master" />
+
+        <!-- OP-TEE gits -->
+        <project path="optee_client"         name="OP-TEE/optee_client.git" />
+        <project path="optee_os"             name="loysollivier/optee_os.git" />
+        <project path="optee_test"           name="OP-TEE/optee_test.git" />
+        <project path="build"                name="loysollivier/build.git">
+                <linkfile src="aml-s905x-cc.mk" dest="build/Makefile" />
+                <linkfile src="../toolchains/aarch64/bin/aarch64-linux-gnu-gdb" dest="build/gdb" />
+        </project>
+
+        <!-- linaro-swg gits -->
+                 <!-- ARM Trusted Firmware, cannot use refs/tags, since we need current tip and that is not tagged  -->
+        <project path="linux"                name="linaro-swg/linux.git"                  revision="optee" clone-depth="1" />
+        <project path="optee_benchmark"      name="linaro-swg/optee_benchmark.git"/>
+        <project path="optee_examples"       name="linaro-swg/optee_examples.git" />
+
+        <!-- Misc gits -->
+        <project path="arm-trusted-firmware" name="ARM-software/arm-trusted-firmware.git" revision="master" />
+        <project path="buildroot"            name="buildroot/buildroot.git"               revision="refs/tags/2018.08" clone-depth="1" />
+        <project path="firmware"             name="loysollivier/aml_s905x_cc-firmware.git"              revision="master" />
+        <project path="u-boot"               name="u-boot/u-boot.git"                     revision="refs/tags/v2018.11-rc2" clone-depth="1" />
+</manifest>
